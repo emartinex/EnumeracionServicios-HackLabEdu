@@ -1,0 +1,32 @@
+;
+; Archivo de zona para emartinex.local
+;
+$TTL    604800
+@       IN      SOA     ns1.emartinex.local. admin.emartinex.local. (
+                              3         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+; Servidor de Nombres de la Zona
+@       IN      NS      ns1.emartinex.local.
+@       IN      MX      10 mail.emartinex.local.
+
+; Direcciones IP de los Servidores
+ns1        IN      A       172.20.0.30
+www        IN      A       172.20.0.80
+mail       IN      A       172.20.0.25
+fileserver IN      A       172.20.0.10
+backup     IN      A       172.20.0.99
+vpn        IN      A       172.20.0.15
+snmp       IN      A       172.20.0.20
+
+; Registros TXT (Pistas didácticas para los estudiantes)
+@          IN      TXT     "eMartinex Corp. - Laboratorio de Hacking Etico"
+fileserver IN      TXT     "Servidor de Archivos SMB (172.20.0.10) - Comparticiones activas"
+backup     IN      TXT     "Servidor de Copia de Seguridad. Verifique comparticion oculta en fileserver."
+vulnerabilidad IN  TXT     "Educativo: Transferencia de zona DNS expuesta. Excelente descubrimiento!"
+
+; BANDERAS CTF
+flag       IN      TXT     "FLAG{dns_zone_transfer_leak_info_2026}"

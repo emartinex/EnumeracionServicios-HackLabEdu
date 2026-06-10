@@ -1,0 +1,8 @@
+zone "emartinex.local" {
+    type master;
+    file "/etc/bind/db.emartinex.local";
+    
+    // MALA CONFIGURACIÓN DIDÁCTICA: Habilitar transferencia de zona para cualquiera.
+    // Esto permitirá realizar un ataque "Zone Transfer" (AXFR) y enumerar todos los subdominios.
+    allow-transfer { any; };
+};
