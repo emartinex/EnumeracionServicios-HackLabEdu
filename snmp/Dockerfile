@@ -15,4 +15,4 @@ RUN chmod 644 /etc/snmp/snmpd.conf
 EXPOSE 161/udp
 
 # Ejecutar snmpd en primer plano como root, desactivando caída de privilegios y enviando logs a stderr (-Le)
-CMD ["/usr/sbin/snmpd", "-f", "-Le", "-u", "root", "-c", "/etc/snmp/snmpd.conf"]
+CMD ["/usr/sbin/snmpd", "-f", "-Le", "-n", "-c", "/etc/snmp/snmpd.conf"]
